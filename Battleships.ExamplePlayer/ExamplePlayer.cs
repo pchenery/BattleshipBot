@@ -1,6 +1,7 @@
 ﻿namespace Battleships.ExamplePlayer
 {
     using Battleships.Player.Interface;
+    using System;
     using System.Collections.Generic;
 
     public class ExamplePlayer : IBattleshipsBot
@@ -10,20 +11,34 @@
 
         public string Name
         {
-            get { return "Example Player"; }
+            get { return "Trafalgar"; }
         }
 
         public IEnumerable<IShipPosition> GetShipPositions()
         {
             return new List<IShipPosition>
                    {
-                       GetShipPosition('A', 1, 'A', 5),
-                       GetShipPosition('C', 1, 'C', 4),
-                       GetShipPosition('E', 1, 'E', 3),
-                       GetShipPosition('G', 1, 'G', 3),
-                       GetShipPosition('I', 1, 'I', 2)
+                       //RandomShipPosition(5),
+                       
+                       GetShipPosition('A', 5, 'A', 9),
+                       GetShipPosition('C', 5, 'C', 8),
+                       GetShipPosition('E', 5, 'E', 7),
+                       GetShipPosition('G', 5, 'G', 7),
+                       GetShipPosition('I', 5, 'I', 6)
                    };
         }
+
+        //private static ShipPosition RandomShipPosition(int shipLength)
+        //{
+        //    Random rnd = new Random();
+        //    char startRow = (char)rnd.Next(65, 75);
+        //    int startColumn = rnd.Next(1, 10 - shipLength);
+        //    if 
+        //        char endRow = startRow;
+        //    int endColumn = startColumn + shipLength;
+
+        //    return new ShipPosition(new GridSquare(startRow, startColumn), new GridSquare(endRow, endColumn));
+        //}
 
         public IGridSquare SelectTarget()
         {
