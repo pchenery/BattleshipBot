@@ -18,27 +18,27 @@
         {
             return new List<IShipPosition>
                    {
-                       //RandomShipPosition(5),
+                       //GetRandomShipPosition(5),
                        
-                       GetShipPosition('A', 5, 'A', 9),
-                       GetShipPosition('C', 5, 'C', 8),
-                       GetShipPosition('E', 5, 'E', 7),
-                       GetShipPosition('G', 5, 'G', 7),
-                       GetShipPosition('I', 5, 'I', 6)
+                       GetShipPosition('B', 2, 'B', 6),
+                       GetShipPosition('E', 2, 'H', 2),
+                       GetShipPosition('D', 7, 'D', 9),
+                       GetShipPosition('G', 5, 'I', 5),
+                       GetShipPosition('J', 8, 'J', 9)
                    };
         }
 
-        //private static ShipPosition RandomShipPosition(int shipLength)
-        //{
-        //    Random rnd = new Random();
-        //    char startRow = (char)rnd.Next(65, 75);
-        //    int startColumn = rnd.Next(1, 10 - shipLength);
-        //    if 
-        //        char endRow = startRow;
-        //    int endColumn = startColumn + shipLength;
+        private static ShipPosition GetRandomShipPosition(int shipLength)
+        {
+            Random rnd = new Random();
+            char startRow = (char) rnd.Next(65, 76);
+            int startColumn = rnd.Next(1, 11 - shipLength);
+            char endRow = startRow;
+            int endColumn = startColumn + shipLength;
+            var orientation = rnd.Next(1, 3) % 0;
 
-        //    return new ShipPosition(new GridSquare(startRow, startColumn), new GridSquare(endRow, endColumn));
-        //}
+            return new ShipPosition(new GridSquare(startRow, startColumn), new GridSquare(endRow, endColumn));
+        }
 
         public IGridSquare SelectTarget()
         {
